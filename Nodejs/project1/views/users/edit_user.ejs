@@ -1,0 +1,25 @@
+<%- include('../header.ejs') %>
+<div class="container mt-3">
+    <h2>Sửa tài khoản</h2>
+    <form action="/update_user" method="POST">
+        
+    <div class="form-group">
+        <input type="hidden" hidden class="form-control" id="id" name="id" value="<%= users.id %>">
+      </div>
+        <div class="form-group">
+            <label for="name" class="form-label">Tên người dùng</label>
+            <input type="text" class="form-control"  placeholder="Enter name" name="name" id="name" required value="<%= users.name %>">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" value="<%= users.email  %>">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password" value="<%=users.password  %>">
+      </div>
+      <button type="submit" class="btn btn-primary">Cập nhật</button>
+      <a href="/list_user" class="btn btn-dark">Trở lại</a>
+    </form>
+</div>
+
+<%- include('../footer.ejs') %>

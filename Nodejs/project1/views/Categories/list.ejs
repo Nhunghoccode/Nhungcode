@@ -1,0 +1,34 @@
+<%- include('../header.ejs') %>
+
+<div class="container">
+    <h2>Danh sách nhóm sản phẩm</h2>
+    <a href="/add-categories" class="btn btn-primary">Thêm mới</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tên nhóm</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th> <!-- Added this for clarity -->
+            </tr>
+        </thead>
+        <tbody>
+            <% cat.forEach(item => { %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.status ? 'Hiển Thị' : 'Ẩn' %></td>
+                    <td>
+                        <a href="/edit-categories/<%= item.id %>" class="btn btn-info">Sửa</a>
+                        
+                        <!-- Form for Delete -->
+                        <form action="/delete-categories/<%= item.id %>?_method=DELETE" method="POST" style="display:inline;">
+                          <button type="submit" class="btn btn-danger">Xóa</button>
+                      </form>
+                      
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../footer.ejs') %>

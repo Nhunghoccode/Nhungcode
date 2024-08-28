@@ -1,0 +1,39 @@
+<%- include('../header.ejs') %>
+
+<div class="container mt-3">
+  <h1>Danh sách người dùng</h1>
+<a href="/add_user" class="btn btn-primary">Thêm mới</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tên người dùng</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(item=>{%>
+
+            <tr>
+              <td><%=item.name%></td>
+              <td><%=item.email%></td>
+              <td><%=item.password%></td>
+              <td>
+                <form action="/delete/<%= item.id %>" method="post">
+                  <a href="/edit_user/<%= item.id%>" class="btn btn-info">Sửa</a>
+                  <button type="submit" class="btn btn-danger">Xoá</button>
+                </form>
+              </td>
+            </tr>
+            
+        <%})%>
+      </tbody>
+    </table>
+  </div>
+<%- include('../footer.ejs') %>
+
+
+
+
+

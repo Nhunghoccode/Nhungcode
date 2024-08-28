@@ -1,0 +1,37 @@
+<%- include('../header.ejs') %>
+<h1>Danh sách sản phẩm</h1>
+<a href="/products/add" class="btn btn-primary">Thêm mới</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Loại sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Ảnh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% products.forEach(product => { %>
+            <tr>
+                <td><%= product.id %></td>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.cate_name %></td>
+                <td><%= product.description %></td>
+                <td><img src="<%= product.image %>" alt="<%= product.name %>" width="100"></td>
+                <td>
+                    <a href="/products/edit/<%= product.id %>" class="btn btn-warning">Sửa</a>
+                    <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+<%- include('../footer.ejs') %>

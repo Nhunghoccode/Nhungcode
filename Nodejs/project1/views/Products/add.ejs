@@ -1,0 +1,40 @@
+<%- include('../header.ejs') %>
+
+<h1>Thêm sản phẩm mới</h1>
+
+<form action="/products/add" method="POST" enctype="multipart/form-data" class="was-validated">
+    <div class="mb-3">
+        <label for="name" class="form-label">Tên sản phẩm:</label>
+        <input type="text" class="form-control" name="name" id="name" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="price" class="form-label">Giá:</label>
+        <input type="number" class="form-control" name="price" id="price" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="image" class="form-label">Ảnh sản phẩm:</label>
+        <input type="file" class="form-control" name="image" id="image" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Mô tả:</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="category_id" class="form-label">Loại sản phẩm:</label>
+        <select name="category_id" id="category_id" class="form-select" required>
+            <option value="" disabled selected>Chọn loại sản phẩm</option>
+            <% cat.forEach(item => { %>
+                <option value="<%= item.id %>"><%= item.name %></option>
+            <% }) %>
+        </select>
+    </div>  
+
+    <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+    <a href="/products" class="btn btn-danger">Quay lại</a>
+</form>
+
+<%- include('../footer.ejs') %>

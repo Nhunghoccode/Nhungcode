@@ -1,0 +1,31 @@
+<%- include('../header.ejs') %>
+
+<div class="container mt-3">
+  <h2>Thêm mới nhóm sản phẩm</h2>
+  <% if(typeof err!='undefined'){%>
+    <% err.forEach((item)=>{ %>
+    <h4><%=item.message %></h4>
+   <% })%>
+
+  <%}%>
+  <form action="/luu" method="post">
+    <div class="mb-3 mt-3">
+      <label for="name">Tên nhóm:</label>
+      <input type="text" class="form-control"  placeholder="Enter name" name="name">
+    </div>
+    <div class="mb-3">
+      <label for="order">Thứ tự:</label>
+      <input type="text" class="form-control"  placeholder="Enter id" name="status">
+    </div>
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox"> Hiển Thị
+      </label>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="add-categories" class="btn btn-primary">Trở lại</a>
+  </form>
+</div>
+
+<%- include('../footer.ejs') %>

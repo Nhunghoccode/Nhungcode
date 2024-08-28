@@ -1,0 +1,34 @@
+<%- include('../userpages/header.ejs') %>
+<div class="product-section">
+    <div class="container">
+        <div class="row">
+            <% cat.forEach(cat => { %>
+                <a class="product-item" href="/">
+                    <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0"></div>
+                    <img src="<%= cat.image %> "class="img-fluid product-thumbnail">
+            </div>
+                    <div>  
+                         <h3 class="product-title"><%= cat.name %></h3>
+                        <strong class="product-price">
+                            <%= new Intl.NumberFormat('VND', { maximumSignificantDigits: 3 }).format(cat.price) %>
+                            VNĐ
+                        </strong>
+                        <h3 class="product-title"><td><%= cat.cate_name %></h3>
+                        <h3 class="product-title"><td><%= cat.description %></h3>
+                        <span class="icon-cross">
+                            <img src="/images/cross.svg" class="img-fluid">
+                        </span>
+                        
+                        <button class="btn btn-primary">Mua </button>
+                    </div>
+                 
+                </a>
+                
+
+            </div> 
+            <% }) %>
+
+        </div>
+    </div>
+</div>
+<%- include('../userpages/footer.ejs') %>
